@@ -27,7 +27,7 @@ amqp.connect('amqp://localhost', function(error0, connection) {
                 console.log(" [x] Received %s", msg.content.toString());
                 setTimeout(function() {
                     console.log(" [x] Done");
-                    //channel.ack(msg); //WRONG Point in tutorial => will make the worker fail
+                    //channel.ack(msg); //WRONG Point in tutorial => will make the worker fail.
                 }, secs * 1000);
             }, 
             {
