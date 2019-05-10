@@ -14,7 +14,7 @@ amqp.connect('amqp://localhost', function(error0, connection) {
         var queue = 'task_queue';
 
         channel.assertQueue(queue, {
-            durable: false
+            durable: true
         });
 
         console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", queue);
@@ -27,7 +27,7 @@ amqp.connect('amqp://localhost', function(error0, connection) {
                 console.log(" [x] Received %s", msg.content.toString());
                 setTimeout(function() {
                     console.log(" [x] Done");
-                    channel.ack(msg); //WRONG Point in tutorial => will make the worker fail.
+                    channel.ack(msg);//.
                 }, secs * 1000);
             }, 
             {
